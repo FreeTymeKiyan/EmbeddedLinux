@@ -1,0 +1,11 @@
+[Unit]
+Description=New bonescript server
+
+[Service]
+WorkingDirectory=/home/root/BeagleBone-excercise/realtime
+Environment=NODE_PATH=/usr/lib/node_modules
+ExecStart=/usr/bin/node boneServer.js 
+SyslogIdentifier=boneServer
+
+[Install]
+WantedBy=multi-user.target
