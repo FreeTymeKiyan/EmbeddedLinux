@@ -16,19 +16,26 @@ TOOLS_TARGETS	:= my2cset
 #
 # Programs
 #
-all:	matrixLEDi2c myi2cget alert
+all:	matrixLEDi2c myi2cget etch_a_sketch
 
 matrixLEDi2c:  matrixLEDi2c.o i2cbusses.o
 	$(CC) $(LDFLAGS) -o $@ $^
 
 myi2cget:   myi2cget.o
 	$(CC) $(LDFLAGS) -o $@ $^
-
-alert: alert.c gpio-utils.o
-	gcc -o alert alert.c gpio-utils.o
 	
+etch_a_sketch: etch_a_sketch.o gpio-utils.o i2cbusses.o
+	gcc -o etch_a_sketch etch_a_sketch.o gpio-utils.o i2cbusses.o
+	
+etch_a_sketch.o: etch_a_sketch.c gpio-utils.o i2cbusses.o
+	gcc -c etch_a_sketch.c
+
 gpio-utils.o: gpio-utils.c gpio-utils.h 
 	gcc -c gpio-utils.c
+
+i2cbusses.o: i2cbusses.c i2cbusses.h
+	gcc -c i2cbusses.c
+
 #
 # Objects
 #
