@@ -1,0 +1,18 @@
+1.Before writing any code, write a paragraph describing how boneServer.js and the browser interact in the given example. For example, in matrixLED.js connect() is called to make a connection between the browser and the bone.  The message matrix is sent to the bone. What happens in response to the message? 
+
+Function matrix is called and displays the leds on matrix according to the disp[].
+
+2.What happens when an LED is clicked on in the browser?
+
+Function LEDclick is called, then a msg is sent to the server to call i2cset and refresh a certain column on the matrix led.
+
+3.What entry in matrix.css is used to color the LED?
+
+.on {
+	border: 1px solid #00ee00;
+	background-color: green;
+}
+
+4.Write a high level paragraph about how you will control the two LEDs. What messages will be sent between the browser and the bone?
+
+Modify funtion LEDclick. Add before socket.emit reading the current state of matrix led and process disp[] according to different state.
