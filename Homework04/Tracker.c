@@ -1,6 +1,6 @@
 /**
  * Author: FreeTymeKiyan
- * Date: 2013-06-30
+ * Date: 2013-09-30
  *
  * Step motor and IR Tracker
  */
@@ -39,7 +39,7 @@ int main(int argc, char *argv[]) {
 	for(i = 0; i < 20; i++) {
 		PT1_val[i] = analog_in(PT1);
 		PT2_val[i] = analog_in(PT2);
-		printf("PT1: %4d PT2: %4d\n", PT1_val[i], PT2_val[i]);
+		printf("PT1: %4d\tPT2: %4d\n", PT1_val[i], PT2_val[i]);
 		clockwise_rotate(&pos);
 		usleep(1000 * 100);
 	}
@@ -56,7 +56,7 @@ int main(int argc, char *argv[]) {
 		}
 	}
 
-	printf("min: %d min_pos: %d\n", min, min_pos);
+	printf("minimum: %d\tminimum_pos: %d\n", min, min_pos);
 
 	for(i = 19; i >= 0; i--) {
 		counter_clockwise_rotate(&pos);
@@ -77,7 +77,7 @@ int main(int argc, char *argv[]) {
 		} else if(PT1_now < PT2_now) {
 			counter_clockwise_rotate(&pos);
 		}
-		printf("PT1: %4d PT2: %4d\n", PT1_now, PT2_now);
+		printf("PT1: %4d\tPT2: %4d\n", PT1_now, PT2_now);
 		usleep(1000 * 300);
 	}
 	return 0;	
