@@ -1,0 +1,82 @@
+From b3bb5e66e963a4ae6d10624f1735d43934b7c2bc Mon Sep 17 00:00:00 2001
+From: FreeTymeKiyan <FreeTymeSunKiyan@gmail.com>
+Date: Wed, 23 Oct 2013 23:00:11 -0400
+Subject: [PATCH] Files for hello1 kernel module
+
+---
+ drivers/char/Kconfig           |  7 +++++++
+ drivers/char/Makefile          |  2 ++
+ drivers/char/examples/Makefile |  1 +
+ drivers/char/examples/hello1.c | 21 +++++++++++++++++++++
+ 4 files changed, 31 insertions(+)
+ create mode 100644 drivers/char/examples/Makefile
+ create mode 100644 drivers/char/examples/hello1.c
+
+diff --git a/drivers/char/Kconfig b/drivers/char/Kconfig
+index 72bedad..a92fe6c 100644
+--- a/drivers/char/Kconfig
++++ b/drivers/char/Kconfig
+@@ -6,6 +6,13 @@ menu "Character devices"
+ 
+ source "drivers/tty/Kconfig"
+ 
++config EXAMPLES
++	tristate "Enable Examples"
++	default m
++	help
++	  Enable compilation option for Embedded Linux Primer
++	  driver examples
++
+ config DEVKMEM
+ 	bool "/dev/kmem virtual device support"
+ 	default y
+diff --git a/drivers/char/Makefile b/drivers/char/Makefile
+index 7ff1d0d..57ef63e 100644
+--- a/drivers/char/Makefile
++++ b/drivers/char/Makefile
+@@ -53,6 +53,8 @@ obj-$(CONFIG_MWAVE)		+= mwave/
+ obj-$(CONFIG_AGP)		+= agp/
+ obj-$(CONFIG_PCMCIA)		+= pcmcia/
+ 
++obj-$(CONFIG_EXAMPLES) 		+= examples/
++
+ obj-$(CONFIG_HANGCHECK_TIMER)	+= hangcheck-timer.o
+ obj-$(CONFIG_TCG_TPM)		+= tpm/
+ 
+diff --git a/drivers/char/examples/Makefile b/drivers/char/examples/Makefile
+new file mode 100644
+index 0000000..ffda336
+--- /dev/null
++++ b/drivers/char/examples/Makefile
+@@ -0,0 +1 @@
++obj-$(CONFIG_EXAMPLES) += hello1.o
+diff --git a/drivers/char/examples/hello1.c b/drivers/char/examples/hello1.c
+new file mode 100644
+index 0000000..fc7bcd3
+--- /dev/null
++++ b/drivers/char/examples/hello1.c
+@@ -0,0 +1,21 @@
++/* Example Minimal Character Device Driver */
++#include <linux/module.h>
++
++static int __init hello_init(void)
++{
++    printk(KERN_INFO "Hello Example Init\n");
++
++    return 0;
++}
++
++static void __exit hello_exit(void)
++{
++    printk(KERN_INFO "Hello Example Exit\n");
++}
++
++module_init(hello_init);
++module_exit(hello_exit);
++
++MODULE_AUTHOR("Kiyan Liu");
++MODULE_DESCRIPTION("Hello World Example");
++MODULE_LICENSE("GPL");
+-- 
+1.8.1.2
+
