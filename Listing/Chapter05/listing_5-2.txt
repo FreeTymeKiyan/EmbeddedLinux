@@ -1,0 +1,37 @@
+// comments
+// There are multiple piggy.X.S files where X was a different form of compression. 
+// This gives us some options when building the kernel.
+// piggy.gzip.S, piggy.lzma.S, piggy.lzo.S, and piggyxzkern.S
+// comments
+
+//piggy.gzip.S
+        .section .piggydata,#alloc
+        .globl        input_data
+input_data:
+        .incbin        "arch/arm/boot/compressed/piggy.gzip"
+        .globl        input_data_end
+input_data_end:
+
+//piggy.lzma.S
+        .section .piggydata,#alloc
+        .globl        input_data
+input_data:
+        .incbin        "arch/arm/boot/compressed/piggy.lzma"
+        .globl        input_data_end
+input_data_end:
+
+//piggy.lzo.S
+        .section .piggydata,#alloc
+        .globl        input_data
+input_data:
+        .incbin        "arch/arm/boot/compressed/piggy.lzo"
+        .globl        input_data_end
+input_data_end:
+
+//piggy.xzkern.S
+        .section .piggydata,#alloc
+        .globl        input_data
+input_data:
+        .incbin        "arch/arm/boot/compressed/piggy.xzkern"
+        .globl        input_data_end
+input_data_end:
