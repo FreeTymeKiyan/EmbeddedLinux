@@ -16,7 +16,7 @@ TOOLS_TARGETS	:= my2cset
 #
 # Programs
 #
-all:	matrixLEDi2c myi2cget
+all:	matrixLEDi2c myi2cget alert
 
 matrixLEDi2c:  matrixLEDi2c.o i2cbusses.o
 	$(CC) $(LDFLAGS) -o $@ $^
@@ -24,6 +24,11 @@ matrixLEDi2c:  matrixLEDi2c.o i2cbusses.o
 myi2cget:   myi2cget.o
 	$(CC) $(LDFLAGS) -o $@ $^
 
+alert: alert.c gpio-utils.o
+	gcc -o alert alert.c gpio-utils.o
+	
+gpio-utils.o: gpio-utils.c gpio-utils.h 
+	gcc -c gpio-utils.c
 #
 # Objects
 #
