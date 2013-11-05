@@ -1,0 +1,145 @@
+Commands Chosen
+
+	* Archival Utilities
+		* bunzip
+		* bzip2
+		* cpio
+		* gunzip
+		* gzip
+		* rpm2cpio
+		* rpm
+		* tar
+		* unzip
+	* coreutils
+		* cat
+		* date 
+		* hostid
+		* id
+		* groups
+		* test
+		* touch
+		* base64
+		* who
+		* users
+		* chgrp
+		* chmod
+		* chown
+		* chroot
+		* cksum
+		* comm
+		* cp
+		* cut
+		* dd
+		* df
+		* dirname
+		* echo
+		* env
+		* false
+		* fold
+		* fsync
+		* head
+		* install 
+		* ln
+		* logname
+		* ls 
+		* md5sum
+		* mkdir
+		* mkfifo
+		* mknod
+		* mv
+		* nice
+		* printf
+		* pwd
+		* readlink
+		* realpath
+		* rm
+		* rmdir
+		* sleep
+		* sort
+		* split 
+		* stat 
+		* stty
+		* sum 
+		* sync
+		* tail
+		* true
+		* tty
+		* uname
+		* usleep
+		* wc
+		* whoami
+		* yes
+	* Console Utilities
+		* clear
+		* reset
+		* resize
+	* Debian Utilities
+		* which
+	* Editors
+		* vi
+		* cmp
+		* diff
+	* Finding Utilities
+		* find
+		* grep
+	* Init Utilities
+		* bootchartd
+		* poweroff, halt, reboot
+		* init
+		* mesg
+	* Login/Password Management Utilities
+		* adduser
+		* addgroup
+		* deluser
+		* delgroup
+		* getty
+		* login
+		* passwd
+		* cryptpw
+		* chpasswd
+		* su
+		* sulogin
+	* Linux Ext2 FS Progs
+		* fsck
+	* Linux Module Utilities
+		* modinfo
+		* insmod
+		* rmmod
+		* lsmod
+		* modprobe
+		* depmod
+	* Linux System Utilities
+		* demsg
+		* fdisk
+		* mkfs_ext2
+		* mount
+		* switch_root
+		* umount
+	* Miscellaneous Utilities
+		* less
+		* man
+		* time
+		* timeout
+		* ttysize
+	* Networking Utilities
+		* ping
+		* hostname
+		* ifconfig
+		* ip
+		* netstat
+		* nslookup
+		* route
+		* telnet
+		* telnetd
+		* traceroute
+		* wget
+	* Print Utilities
+	* Mail Utilities
+	* Process Utilities
+		* top
+		* kill
+		* sysctl
+	* Runit Utilities
+	* Shells
+	* System Logging Utilities
+		* syslogd
